@@ -1,8 +1,4 @@
-'''
-course_search is a Python script using a terminal based menu to help
-students search for courses they might want to take at Brandeis
-OREN IS DOING HIS VIDEO
-'''
+
 from schedule import Schedule
 
 
