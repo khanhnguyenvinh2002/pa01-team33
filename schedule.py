@@ -38,15 +38,31 @@ class Schedule():
     def enrolled(self,vals):
         ''' enrolled filters for enrollment numbers in the list of vals'''
         return Schedule([course for course in self.courses if course['enrolled'] in vals])
-
+    
     def subject(self,subjects):
         ''' subject filters the courses by subject '''
         return Schedule([course for course in self.courses if course['subject'] in subjects])
-
     def sort(self,field):
         if field=='subject':
             return Schedule(sorted(self.courses, key= lambda course: course['subject']))
         else:
             print("can't sort by "+str(field)+" yet")
             return self
- 
+    def title(self, phrase):
+        ''' filters courses containing the phrase in their title '''
+        return Schedule([course for course in self.courses if course['name'] in phrase])
+    def description(self, phrase):
+        '''filters courses containing the phrase in their description'''
+        return Schedule([course for course in self.courses if course['description'] in phrase])
+    def day(self, days):
+        '''filters courses by days they meet'''
+        return Schedule([course for course in self.courses if course['times'][2] in days])
+    def course_num(self, num):
+        '''filters courses by coursenum'''
+        return Schedule([course for course in self.courses if course['coursenum'] in num])
+    def name(self,names):
+        ''' subject filters the courses by course name '''
+        return Schedule([course for course in self.courses if course['name'] in names])
+    def limit(self,limit):
+        ''' subject filters the courses by course name '''
+        return Schedule([course for course in self.courses if course['limit'] in limit])
